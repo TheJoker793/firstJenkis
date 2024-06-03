@@ -1,0 +1,19 @@
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+   <div>
+      <label>Username</label><input formControlName="username">
+   </div>
+   <div *ngIf="userForm.get('username')?.hasError('required')">Username is required</div>
+   <div *ngIf="userForm.get('username')?.hasError('minlength')">Username should be 5 characters min</div>
+
+   <div>
+      <label>Password</label><input type="password" formControlName="password">
+   </div>
+
+   <div>
+    <label>Adresse</label><input type="text" formControlName="adresse">
+ </div>
+
+   <button type="submit" [disabled]="userForm.invalid">Register</button>
+</form>
+
